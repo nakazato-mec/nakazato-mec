@@ -109,7 +109,7 @@ class EmployeesController extends AppController
                 //redirect()は転送先のURLやアクション(メソッド)を指定し、処理を行う関数。
                 //ここではアクションとしてindexを指定し、index()が行われる。
             }
-            $this->Flash->error(__('The employee could not be saved. Please, try again.'));
+            $this->Flash->error(__('The employee could not be saved. Please, try again.　入力部分に不備があります。登録できません。'));
             //エラー分の出力
         }
         $this->set(compact('employee'));
@@ -183,7 +183,7 @@ class EmployeesController extends AppController
         $employees = $this->paginate($this->Employees->find('all')->contain(['Positions']));
         $allcounts = $employees->count();
         $this->set('allcounts',$allcounts);
-        $employee = $this->Employees->newEntity($this->request->getdata());
+        $employee = $this->Employees->newEntity($this->request->getdata());//使用しないエンティティの作成は問題ない?
         $this->set(compact('employees'));
         $this->set('employee',$employee);
         $results=[];

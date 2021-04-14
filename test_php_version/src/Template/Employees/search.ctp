@@ -8,6 +8,7 @@
     <p><?= $this->Html->link(__('従業員一覧'), ['action' => 'index']) ?></p>
     <p>従業員検索</p>
     <?= $this->Form->create($employee,[
+        //バリデーションチェックによって未入力を出す方法はこの方法で問題ないのか？機能によってはJavaScriptで行う。
         // 'type' => 'POST',
         'url' => [
             'controller'=>'Employees',
